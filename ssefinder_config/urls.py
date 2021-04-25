@@ -17,7 +17,14 @@ from django.contrib import admin
 from django.urls import include, path
 from Case import views
 
+from .views import *
+
 urlpatterns = [
     path('', include('Case.urls')),
     path('admin/', admin.site.urls),
+    path('', HomeView.as_view(), name="home_page")
+    path('case/', CaseView.as_view(), name="case_page")
+    
+    # TODO
+    # with Case/Event include the urls there
 ]
