@@ -1,0 +1,18 @@
+<title>Results</title>
+<h1>Results</h1>
+{%if object_list%}
+<h2>Matched Cases found!</h2>
+<p>--------------------------------------------------------------------------</p>
+<ul>
+    {%for case in object_list%}
+    <div>
+        <li>
+            <a href= "{{ Case.get_absolute_url}}">{{Case.Case_Number}}
+            </a>  
+        </li>
+    </div>
+    {% endfor %}
+</ul>
+{%else%}
+<h2>Sorry, cannot find any matched case!</h2>
+{%endif%}
