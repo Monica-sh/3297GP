@@ -1,3 +1,4 @@
+  
 import uuid
 from django.db import models
 from django.urls import reverse
@@ -9,12 +10,11 @@ class Case(models.Model):
     Date_of_Birth = models.CharField(max_length=30)
     Date_of_Symptons = models.CharField(max_length=30)
     Date_of_Confirmation = models.CharField(max_length=30)
-
     id = models.UUIDField(
         primary_key=True,
         default = uuid.uuid4,
-        editable=False
-        )
+        editable=False)
+        
     class Meta:
         ordering = ['Case_Number']
 
