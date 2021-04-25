@@ -4,7 +4,7 @@ from django.db import models
 from django.urls import reverse
 
 class Case(models.Model):
-    Case_Number = models.DecimalField(max_digits =10,decimal_places =0,unique = True)
+    Case_Number = models.CharField(max_length=30,unique = True)
     Person_name = models.CharField(max_length=30)
     Identity_Document_Number = models.CharField(max_length=10)
     Date_of_Birth = models.CharField(max_length=30)
