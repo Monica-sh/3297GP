@@ -10,7 +10,6 @@ class Case(models.Model):
     Date_of_Symptons = models.CharField(max_length=30)
     Date_of_Confirmation = models.CharField(max_length=30)
 
-'''
     id = models.UUIDField(
         primary_key=True,
         default = uuid.uuid4,
@@ -23,5 +22,4 @@ class Case(models.Model):
         return self.Case_Number
 
     def get_absolute_url(self):
-        return reverse('Case_detail',args = [str(self.id)])
-'''
+        return reverse('case_detail',args = [str(self.id)])
