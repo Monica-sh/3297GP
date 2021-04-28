@@ -1,0 +1,73 @@
+.SplitLine{
+    color: gray;
+
+    width: 1000px;
+}
+
+.search{
+    font-size: 20px;
+    margin: 20px;
+}
+
+.header{
+    text-align: center;
+
+    /*background-color: #57b2fb;*/
+
+    font-size: 35px;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+
+    margin-bottom: 0px;
+}
+
+
+#AddCaseBtn{
+    font-size: 25px;
+    margin: 20px;
+}
+
+.InputArea{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.FindSSEDate{
+    margin: 20px;
+
+    font-size: 20px;
+}
+
+#FindCaseInput{
+    width: 400px;
+    margin: 20px;
+
+    font-size: 20px;
+}
+
+#AddCase{
+    /*margin-top: 100px;*/
+    margin-bottom: 60px;
+}
+
+#FindSSE{
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+    font-size: 20px;
+}
+
+#FindCase{
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+#footer{
+    background-color: lightsalmon;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    padding: 1rem;
+}
