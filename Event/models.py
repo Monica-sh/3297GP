@@ -20,7 +20,7 @@ class PublicEvent(models.Model):
     # x and y coordinates of location
     xCoord = models.FloatField()
 
-    yCoord = models.models.FloatField()
+    yCoord = models.FloatField()
 
     # date of event
     date = models.DateField()
