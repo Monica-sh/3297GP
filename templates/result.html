@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="result_style.css">
+    <title>Find Case Result</title>
+</head>
+
+
+<body>
+
+
+    <div id="Header">
+        <div><span id="HeaderText">Case Number: #</span>{{case.Case_Number}}</div>
+    </div>
+
+
+    <div id="CaseInfo">
+        <p id="CaseInfoHeader" class="header">Case Information</p>
+        <hr class="SplitLine">
+        <div id="CaseInfoArea" class="InputArea">
+            <!--show case info here-->
+            <div class="caseData"><span id="Case_Number" class="caseHeader"> Case Number </span>{{case.Case_Number}}</div>
+            <div class="caseData"><span id="Person_name" class="caseHeader"> Person_name </span>{{case.Person_name}}</div>
+            <div class="caseData"><span id="Identity_Document_Number" class="caseHeader"> Identity_Document_Number </span>{{case.Identity_Document_Number}}</div>
+            <div class="caseData"><span id="Date_of_Birth" class="caseHeader"> Date_of_Birth </span>{{case.Date_of_Birth}}</div>
+            <div class="caseData"><span id="Date_of_Symptoms" class="caseHeader"> Date_of_Symptoms </span>{{case.Date_of_Symptoms}}</div>
+            <div class="caseData"><span id="Date_of_Confirmation" class="caseHeader"> Date_of_Confirmation </span>{{case.Date_of_Confirmation}}</div>
+            <button id="editCaseBtn" class="edit">Edit</button>
+        </div>
+    </div>
+
+
+    <div id="EventInfo">
+        <p id="EventInfoHeader" class="header">Event Info</p>
+        <hr class="SplitLine">
+        <div id="EventInfoArea" class="InputArea">
+            <table id="EventTable" border="0" style="border-collapse: collapse;">
+                <tr class="eventRowTitle"> <!--each event takes one row-->
+                    <th><span id="name" class="eventData">Event Name</span></th>
+                    <th><span id="location" class="eventData">Location</span></th>
+                    <th><span id="address" class="eventData">Address</span></th>
+                    <th><span id="xCoord" class="eventData">xCoord</span></th>
+                    <th><span id="yCoord" class="eventData">yCoord</span></th>
+                    <th><span id="date" class="eventData">Date: </span></th>
+                    <th><span id="description" class="eventData">Description</span></th>
+                    <th></th>
+                </tr>
+                <!--show Event info here-->
+                {% for elements in event_list %}
+                <tr class="eventRow">
+                    <td>{{elements.event.name}}</td>
+                    <td>{{elements.event.location}}</td>
+                    <td>{{elements.event.address}}</td>
+                    <td>{{elements.event.xCoord}}</td>
+                    <td>{{elements.event.yCoord}}</td>
+                    <td>{{elements.event.date}}</td>
+                    <td>{{elements.description}}</td>
+                    <td><button class="edit">Edit</button></td>
+                </tr>
+
+            </table>
+        </div>
+        <!--After the for loop, add this button-->
+        <div id="NewEventBtnArea">
+            <button id="RecordNewEventBtn">Record New Event</button>
+        </div>
+    </div>
+
+
+    <div id="lastTwoBtn">
+        <button id="HomeBtn">Home</button>
+    </div>
+
+
+    <div id="footer">
+        <h3>HKU Centre for Health Protection (CHP)</h3>
+        <p>Email: <a href=chphku@hku.hk">HKU CHP Office</a></p>
+        <p>Telephone: (+852) 2819 2650</p>
+    </div>
+
+</body>
+</html>
