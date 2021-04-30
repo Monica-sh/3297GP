@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name="home_page")
     path('case/', CaseView.as_view(), name="case_page")
+    path('event/', include('Event.urls'))
     
     # TODO
     # with Case/Event include the urls there
