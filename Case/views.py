@@ -47,7 +47,7 @@ def Case_Detail_View(request,pk):
             'Date_of_Symptons' : Date_of_Symptons,
             'Date_of_Confirmation' : Date_of_Confirmation,
     }
-    return render(request,'Case/templates/case_detail.html',Data )
+    return render(request,'/Case/templates/result.html',Data) #TODO: Monica connect to result page
 
 '''
 def case_create_view(request):
