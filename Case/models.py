@@ -8,7 +8,7 @@ class Case(models.Model):
     Person_name = models.CharField(max_length=30)
     Identity_Document_Number = models.CharField(max_length=10)
     Date_of_Birth = models.DateField()
-    Date_of_Symptons = models.DateField()
+    Date_of_Symptoms = models.DateField()
     Date_of_Confirmation = models.DateField()
     id = models.UUIDField(
         primary_key=True,

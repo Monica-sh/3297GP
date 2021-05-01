@@ -16,7 +16,7 @@ class PersonalEventForm(forms.Form):
     def clean_date(self):
         val = self.cleaned_data.get("date")
 
-        if not DateUtils.in_between(val, self.case.Date_of_Symptons + datetime.timedelta(days=-14), self.case.Date_of_Confirmation):
+        if not DateUtils.in_between(val, self.case.Date_of_Symptoms + datetime.timedelta(days=-14), self.case.Date_of_Confirmation):
             raise ValidationError("Date out of range! ")
         else:
             print("validation passed! ")

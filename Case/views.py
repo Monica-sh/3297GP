@@ -25,9 +25,9 @@ class CaseCreateView(View):
     def post (self,request):
         form = self.form_class(request.POST)
         if form.is_valid():
-            new_case_pk = form.save()
-            new_case = Case.objects.get(pk=new_case_pk)
-            return redirect("../../case_detail?Case_Number=" + case.Case_Number)
+            new_case = form.save()
+            # new_case = Case.objects.get(pk=new_case_pk)
+            return redirect("../../case_detail?Case_Number=" + new_case.Case_Number)
         else:
             return render(request,self.template_name,{'form':form})
 
@@ -40,7 +40,7 @@ def Case_Detail_View(request,pk):
     # Person_name = obj.Person_name
     # Identity_Document_Number = obj.Identity_Document_Number
     # Date_of_Birth = obj.Date_of_Birth
-    # Date_of_Symptons = obj.Date_of_Symptons
+    # Date_of_Symptoms = obj.Date_of_Symptoms
     # Date_of_Confirmation = obj.Date_of_Confirmation 
 
     # Data = {
@@ -48,7 +48,7 @@ def Case_Detail_View(request,pk):
     #         'Person_name': Person_name,
     #         'Identity_Document_Number': Identity_Document_Number,
     #         'Date_of_Birth': Date_of_Birth,
-    #         'Date_of_Symptons' : Date_of_Symptons,
+    #         'Date_of_Symptoms' : Date_of_Symptoms,
     #         'Date_of_Confirmation' : Date_of_Confirmation,
     # }
 
