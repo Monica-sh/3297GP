@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="case_detail_style.css">
-    <title>Find Case Result</title>
+    <title>Case Details</title>
 </head>
 
 
@@ -19,12 +19,13 @@
         <hr class="SplitLine">
         <div id="CaseInfoArea" class="InputArea">
             <!--show case info here-->
-            <div class="caseData"><span id="Case_Number" class="caseHeader"> Case Number </span>{{case.Case_Number}}</div>
-            <div class="caseData"><span id="Person_name" class="caseHeader"> Person_name </span>{{case.Person_name}}</div>
-            <div class="caseData"><span id="Identity_Document_Number" class="caseHeader"> Identity_Document_Number </span>{{case.Identity_Document_Number}}</div>
-            <div class="caseData"><span id="Date_of_Birth" class="caseHeader"> Date_of_Birth </span>{{case.Date_of_Birth}}</div>
-            <div class="caseData"><span id="Date_of_Symptoms" class="caseHeader"> Date_of_Symptoms </span>{{case.Date_of_Symptoms}}</div>
-            <div class="caseData"><span id="Date_of_Confirmation" class="caseHeader"> Date_of_Confirmation </span>{{case.Date_of_Confirmation}}</div>
+            <div class="caseData"><span id="Case_Number" class="caseHeader"> Case Number : </span>{{case.Case_Number}}</div>
+            <div class="caseData"><span id="Person_name" class="caseHeader"> Person name : </span>{{case.Person_name}}</div>
+            <div class="caseData"><span id="Identity_Document_Number" class="caseHeader"> Identity Document Number : </span>{{case.Identity_Document_Number}}</div>
+            <div class="caseData"><span id="Date_of_Birth" class="caseHeader"> Date of Birth :</span>{{case.Date_of_Birth}}</div>
+            <div class="caseData"><span id="Date_of_Symptoms" class="caseHeader"> Date of onset of symptoms :</span>{{case.Date_of_Symptoms}}</div>
+            <div class="caseData"><span id="Date_of_Confirmation" class="caseHeader"> Date of confirmation of infection by testing :</span>{{case.Date_of_Confirmation}}</div>
+            <p></p>
             <button id="editCaseBtn" class="edit">Edit</button>
         </div>
     </div>
@@ -63,12 +64,13 @@
             </table>
         </div>
         <!--After the for loop, add this button-->
+        <p></p>
         <div id="NewEventBtnArea">
             <button id="RecordNewEventBtn"><a href="create_event/"+ {{case.pk}}></a>Record New Event</button>
         </div>
     </div>
 
-
+    <p></p>
     <div id="lastTwoBtn">
         <button id="HomeBtn"><a href=""></a>Home</button>
     </div>
