@@ -1,0 +1,1 @@
+web: gunicorn ssefinder_config.wsgi --log-file -

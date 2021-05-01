@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="home_style.css">
+<!--    <script src="wapp.js"></script>-->
+    <title>SSF Finder</title>
+</head>
+<body>
+
+    <div id="AddCase">
+        <p id="AddCaseHeader" class="header">Add Cases</p>
+        <hr class="SplitLine">
+        <div id="AddCaseInputArea" class="InputArea">
+            <button id="AddCaseBtn">Add New Case</button>
+        </div>
+    </div>
+
+    <div id="FindSSE">
+        <p id="FindSSEHeader" class="header">Find SSE</p>
+        <hr class="SplitLine">
+        <div id="FindSSEInputArea" class="InputArea">
+            <input type="date" name="StartDate" placeholder="Start Date" id="FindSSEStartDate" class="FindSSEDate">
+            <p id="FindSSEText">to</p>
+            <input type="date" name="EndDate" placeholder="End Date" id="FindSSEEndDate" class="FindSSEDate">
+            <button class="search" id="FineSSEBtn">Search</button>
+        </div>
+    </div>
+
+    <p>Search For Cases</p>
+    <form action = "{% url 'case_results' %}" method = "get">
+        <input type = "text" name ="q" placeholder="Enter Search Text ..."/>
+        <input type ="submit" value = "Find"/>
+    </form>  
+
+    {% comment %} <div id="FindCase">
+        <p id="FindCaseHeader" class="header">Find Cases</p>
+        <hr class="SplitLine">
+        <form id="FindCaseInputArea" class="InputArea" action="{% url 'case_detail_page' %}" method="get">
+            <input type="text" name="Case_Number" placeholder="Enter case number to search" id="FindCaseInput">
+            <button type="submit" class="search" id="FindCaseBtn">Search</button>
+        </form>
+    </div> {% endcomment %}
+
+    <div id="footer">
+        <h3>HKU Centre for Health Protection (CHP)</h3>
+        <p>Email: <a href=chphku@hku.hk>HKU CHP Office</a></p>
+        <p>Telephone: (+852) 2819 2650</p>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(
+        function(){
+            $("#AddCaseBtn").click(function(){
+                document.location.assign("{% url 'case_create' %}")
+            });
+        }
+    )
+</script>
+</html>
