@@ -22,4 +22,4 @@ class Case(models.Model):
         return self.Case_Number
 
     def get_absolute_url(self):
-        return reverse('case_detail',args = [str(self.id)])
+        return reverse('case_detail_page',args = [str(self.id)])

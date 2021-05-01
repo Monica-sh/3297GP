@@ -7,8 +7,8 @@
     {%for case in object_list%}
     <div>
         <li>
-            <a href= "{{ case.get_absolute_url}}">{{case.Case_Number}}
-            </a>  
+            {% comment %} <a href= "{{ case.get_absolute_url}}">{{case.Case_Number}}</a> {% endcomment %}
+            <a href={% url 'case_detail_page' %}?Case_Number={{case.Case_Number}}>{{case.Case_Number}}</a>
         </li>
     </div>
     {% empty %}
