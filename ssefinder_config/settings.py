@@ -26,7 +26,7 @@ SECRET_KEY = '9*5w7o_j9u9foaprz*mcx&@mj3q7ami9bl3)t!(^vert$i!^z^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://ssefinderfmch.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', 
 ]
 
 ROOT_URLCONF = 'ssefinder_config.urls'
