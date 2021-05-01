@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['ssefinderfmch.herokuapp.com', 'localhost', '127.0.0.1']
 # allowe hosts
+# test
 
 # Application definition
 
