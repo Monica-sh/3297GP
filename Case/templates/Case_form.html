@@ -1,7 +1,9 @@
-<form action = '' method ='POST'>
-    {% csrf_token%}
-    {{form.as_p}}
-    <input type = 'submit' value='Save'/>
-</form>
+<h1>Add Case</h1>
 
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+    <button onclick="window.history.back()">Cancel</button>
+</form>
 <p>--------------------------------------------------------------------------</p>

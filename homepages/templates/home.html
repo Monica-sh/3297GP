@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="home_style.css">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'homepages/css/home_style.css' %}">
 <!--    <script src="wapp.js"></script>-->
     <title>SSF Finder</title>
 </head>
@@ -27,11 +28,14 @@
         </div>
     </div>
 
-    <p>Search For Cases</p>
-    <form action = "{% url 'case_results' %}" method = "get">
-        <input type = "text" name ="q" placeholder="Enter Search Text ..."/>
-        <input type ="submit" value = "Find"/>
-    </form>  
+    <div id="FindCase">
+        <p id="FindCaseHeader" class="header">Search For Cases</p>
+        <hr class="SplitLine">
+        <form id="FindCaseInputArea" class="InputArea" action = "{% url 'case_results' %}" method = "get">
+            <input type = "text" name ="q" id="FindCaseInput" placeholder="Enter Search Text ..."/>
+            <input id="FindCaseBtn" class="search" type ="submit" value = "Find"/>
+        </form> 
+    </div>
 
     {% comment %} <div id="FindCase">
         <p id="FindCaseHeader" class="header">Find Cases</p>

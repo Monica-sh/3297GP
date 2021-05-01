@@ -12,6 +12,11 @@ class CaseForm(forms.ModelForm):
             'Date_of_Symptons',
             'Date_of_Confirmation',
         ]
+        widgets = {
+        'Date_of_Birth': forms.DateInput(attrs={'type':'date'}),
+        'Date_of_Symptons':forms.DateInput(attrs={'type':'date'}), 
+        'Date_of_Confirmation':forms.DateInput(attrs={'type':'date'}), 
+        }
     
     '''def clean_Case_Number(self):
         return self.cleaned_data['Case_Number'].upper()'''
