@@ -57,7 +57,9 @@
                     <td>{{elements.description}}</td>
                     <td><button class="edit">Edit</button></td>
                 </tr>
-
+                {% empty %}
+                    <p>No result. </p>
+                {% endfor %}
             </table>
         </div>
         <!--After the for loop, add this button-->
