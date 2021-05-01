@@ -13,7 +13,7 @@ class ResultView(ListView):
 
     def get_queryset(self):
         query = self.request.GET.get('q')
-        object_list = Case.objects.filter(Case__icontains = query)
+        object_list = Case.objects.filter(Case_Number__icontains = query)
         return object_list
 
 class CaseCreateView(View):

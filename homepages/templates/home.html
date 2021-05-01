@@ -27,6 +27,12 @@
         </div>
     </div>
 
+    <p>Search For Cases</p>
+    <form action = "{% url 'case_results' %}" method = "get">
+        <input type = "text" name ="q" placeholder="Enter Search Text ..."/>
+        <input type ="submit" value = "Find"/>
+    </form>  
+
     <div id="FindCase">
         <p id="FindCaseHeader" class="header">Find Cases</p>
         <hr class="SplitLine">
