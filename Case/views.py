@@ -25,8 +25,9 @@ class CaseCreateView(View):
     def post (self,request):
         form = self.form_class(request.POST)
         if form.is_valid():
-            new_case = form.save()
-            return redirect(new_case)
+            new_case_pk = form.save()
+            new_case = Case.objects.get(pk=new_case_pk)
+            return redirect("../../case_detail?Case_Number=" + case.Case_Number)
         else:
             return render(request,self.template_name,{'form':form})
 
