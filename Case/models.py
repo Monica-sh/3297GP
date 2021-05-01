@@ -7,9 +7,9 @@ class Case(models.Model):
     Case_Number = models.CharField(max_length=30,unique = True)
     Person_name = models.CharField(max_length=30)
     Identity_Document_Number = models.CharField(max_length=10)
-    Date_of_Birth = models.CharField(max_length=30)
-    Date_of_Symptons = models.CharField(max_length=30)
-    Date_of_Confirmation = models.CharField(max_length=30)
+    Date_of_Birth = models.DateField(max_length=30)
+    Date_of_Symptons = models.DateField(max_length=30)
+    Date_of_Confirmation = models.DateField(max_length=30)
     id = models.UUIDField(
         primary_key=True,
         default = uuid.uuid4,

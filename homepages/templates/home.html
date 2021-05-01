@@ -12,7 +12,7 @@
         <p id="AddCaseHeader" class="header">Add Cases</p>
         <hr class="SplitLine">
         <div id="AddCaseInputArea" class="InputArea">
-            <button id="AddCaseBtn"><a href="/case_create">Add New Case</a></button>
+            <button id="AddCaseBtn">Add New Case</button>
         </div>
     </div>
 
@@ -41,6 +41,15 @@
         <p>Email: <a href=chphku@hku.hk>HKU CHP Office</a></p>
         <p>Telephone: (+852) 2819 2650</p>
     </div>
-
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(
+        function(){
+            $("#AddCaseBtn").click(function(){
+                document.location.assign("{% url 'case_create' %}")
+            });
+        }
+    )
+</script>
 </html>

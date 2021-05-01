@@ -15,18 +15,18 @@ class PublicEvent(models.Model):
     location = models.CharField(max_length=200)
 
     # venue address, get from api
-    address = models.CharField(max_length=200)
+    address = models.CharField(max_length=200, null=True)
 
     # x and y coordinates of location
-    xCoord = models.FloatField()
+    xCoord = models.FloatField(null=True)
 
-    yCoord = models.FloatField()
+    yCoord = models.FloatField(null=True)
 
     # date of event
     date = models.DateField()
 
     # number of cases in the event, should be modified whenever there is a change in personal events to this event
-    number_of_cases = models.IntegerField()
+    number_of_cases = models.IntegerField(default=0)
 
 
 class PersonalEvent(models.Model):
