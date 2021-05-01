@@ -23,6 +23,6 @@ urlpatterns = [
     path('', include('Case.urls')),
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name="home_page"),
-    path('case/', CaseView.as_view(), name="case_page"),
+    path('result/', ResultView.as_view(), name="result_page"),
     path('event/', include('Event.urls')),
 ]

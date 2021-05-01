@@ -21,8 +21,8 @@ from django.core.exceptions import ObjectDoesNotExist
 class HomeView(TemplateView):
     template_name = 'home.html'
 
-class CaseView(TemplateView):
-    template_name = 'case.html'
+class ResultView(TemplateView):
+    template_name = 'result.html'
 
     def get_context_data(self, **kwargs): 
         case = self.get_queryset()
@@ -55,10 +55,10 @@ class CaseView(TemplateView):
         """
 
     def get_queryset(self):
-        Case_Number = self.request.GET.get('number') # with html: search box input case number
+        search_Case_Number = self.request.GET.get('Case_Number') # with html: search box input case number
 
         try:
-            case = Case.objects.get(Case_Number = Case_Number)
+            case = Case.objects.get(Case_Number = search_Case_Number)
         except ObjectDoesNotExist:
             # no case with this number: raise error #TODO
             raise Warning("No case found")
