@@ -27,7 +27,7 @@ SECRET_KEY = '9*5w7o_j9u9foaprz*mcx&@mj3q7ami9bl3)t!(^vert$i!^z^'
 DEBUG = True
 
 ALLOWED_HOSTS = ['ssefinderfmch.herokuapp.com', 'localhost', '127.0.0.1']
-
+# allowe hosts
 
 # Application definition
 
