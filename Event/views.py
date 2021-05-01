@@ -9,7 +9,7 @@ def add_personal_event(request, pk):
         casepk = pk
         case = Case.objects.get(pk=casepk)
         form = PersonalEventForm(case=case)
-        return render(request, "personal_event_create.html", {"form": form}, pk=casepk)
+        return render(request, "personal_event_create.html", {"form": form})
     else:
         # form submitted
         form = PersonalEventForm(request.POST)
