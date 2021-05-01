@@ -4,9 +4,9 @@ from Case.models import Case
 from .forms import PersonalEventForm
 # Create your views here.
 
-def add_personal_event(request):
+def add_personal_event(request, pk):
     if request.method == "GET":
-        casepk = request.GET['pk']
+        casepk = pk
         case = Case.objects.get(pk=casepk)
         form = PersonalEventForm(case=case)
         return render(request, "personal_event_create.html", {"form": form}, pk=casepk)
@@ -15,7 +15,7 @@ def add_personal_event(request):
         form = PersonalEventForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            casepk = request.GET['pk']
+            casepk = pk
             case = Case.objects.get(pk=casepk)
             events = PublicEvent.objects.filter(name=data["name"], location=data["location"], date=data["date"])
             # accounting for sse

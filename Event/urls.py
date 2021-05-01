@@ -4,7 +4,7 @@ from Event import views
 
 urlpatterns = [
     path(
-        'create_location/<slug:pk>', 
+        'create_event/<slug:pk>', 
         views.add_personal_event, 
         name="create-event"
     ), 
