@@ -1,0 +1,36 @@
+        <!--After the for loop, add this button-->
+        <p></p>
+        <div id="NewEventBtnArea">
+            <button id="RecordNewEventBtn">Record New Event</button>
+        </div>
+    </div>
+
+    <p></p>
+    <div id="lastTwoBtn">
+        <button id="HomeBtn">Home</button>
+    </div>
+
+
+    <div id="footer">
+        <h3>HKU Centre for Health Protection (CHP)</h3>
+        <p>Email: <a href=chphku@hku.hk>HKU CHP Office</a></p>
+        <p>Telephone: (+852) 2819 2650</p>
+    </div>
+    <input type="hidden" id="url" data-url="{% url 'create-event' case.pk %}" />
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(
+        function(){
+            $("#HomeBtn").click(function(){
+                document.location.assign("{% url 'home_page' %}")
+            });
+            $("#RecordNewEventBtn").click(function(){
+                url = $("#url").attr("data-url")
+                document.location.assign(url)
+            });
+        }
+    )
+</script>
+</html>
