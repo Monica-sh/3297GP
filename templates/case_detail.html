@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="result_style.css">
+    <link rel="stylesheet" href="case_detail_style.css">
     <title>Find Case Result</title>
 </head>
 
 
 <body>
-
 
     <div id="Header">
         <div><span id="HeaderText">Case Number: #</span>{{case.Case_Number}}</div>
@@ -65,13 +64,13 @@
         </div>
         <!--After the for loop, add this button-->
         <div id="NewEventBtnArea">
-            <button id="RecordNewEventBtn">Record New Event</button>
+            <button id="RecordNewEventBtn"><a href="create_event/"+ {{case.pk}}></a>Record New Event</button>
         </div>
     </div>
 
 
     <div id="lastTwoBtn">
-        <button id="HomeBtn">Home</button>
+        <button id="HomeBtn"><a href=""></a>Home</button>
     </div>
 
 

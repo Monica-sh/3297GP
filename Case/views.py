@@ -4,6 +4,7 @@ from django.views.generic import TemplateView, ListView,CreateView,View
 # Create your views here.
 from .forms import CaseForm
 from .models import Case
+from Event.models import *
 
 
 class ResultView(ListView):
@@ -32,22 +33,30 @@ class CaseCreateView(View):
 def Case_Detail_View(request,pk):
 
     obj = Case.objects.get(id=pk)
-    Case_Number = obj.Case_Number
-    Person_name = obj.Person_name
-    Identity_Document_Number = obj.Identity_Document_Number
-    Date_of_Birth = obj.Date_of_Birth
-    Date_of_Symptons = obj.Date_of_Symptons
-    Date_of_Confirmation = obj.Date_of_Confirmation 
+    event_list = PersonalEvent.objects.filter(case = obj)
+
+    # Case_Number = obj.Case_Number
+    # Person_name = obj.Person_name
+    # Identity_Document_Number = obj.Identity_Document_Number
+    # Date_of_Birth = obj.Date_of_Birth
+    # Date_of_Symptons = obj.Date_of_Symptons
+    # Date_of_Confirmation = obj.Date_of_Confirmation 
+
+    # Data = {
+    #         'Case_Number': Case_Number,
+    #         'Person_name': Person_name,
+    #         'Identity_Document_Number': Identity_Document_Number,
+    #         'Date_of_Birth': Date_of_Birth,
+    #         'Date_of_Symptons' : Date_of_Symptons,
+    #         'Date_of_Confirmation' : Date_of_Confirmation,
+    # }
 
     Data = {
-            'Case_Number': Case_Number,
-            'Person_name': Person_name,
-            'Identity_Document_Number': Identity_Document_Number,
-            'Date_of_Birth': Date_of_Birth,
-            'Date_of_Symptons' : Date_of_Symptons,
-            'Date_of_Confirmation' : Date_of_Confirmation,
+            'case': obj,
+            'event_list': event_list,
     }
-    return render(request,'Case/templates/case_detail.html',Data )
+
+    return render(request,'../templates/case_detail.html', Data) #TODO: Monica connect to result page
 
 '''
 def case_create_view(request):

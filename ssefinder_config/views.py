@@ -22,13 +22,14 @@ class HomeView(TemplateView):
     template_name = 'home.html'
 
 class ResultView(TemplateView):
-    template_name = 'result.html'
+    template_name = 'case_detail.html'
 
     def get_context_data(self, **kwargs): 
         case = self.get_queryset()
         context = super().get_context_data(**kwargs)
-
-        context["case"] = case   
+       
+        context["case"] = case
+        
         context["event_list"] = PersonalEvent.objects.filter(case = case)
     
         return context
@@ -59,8 +60,8 @@ class ResultView(TemplateView):
 
         try:
             case = Case.objects.get(Case_Number = search_Case_Number)
+            return case
         except ObjectDoesNotExist:
             # no case with this number: raise error #TODO
             raise Warning("No case found")
-
-        return case
+            return None
