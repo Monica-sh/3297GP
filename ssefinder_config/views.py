@@ -22,7 +22,7 @@ class HomeView(TemplateView):
     template_name = 'home.html'
 
 class ResultView(TemplateView):
-    template_name = 'result.html'
+    template_name = 'case_detail.html'
 
     def get_context_data(self, **kwargs): 
         case = self.get_queryset()
