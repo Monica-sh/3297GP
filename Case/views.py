@@ -49,7 +49,7 @@ class CaseCreateView(View):
             return render(request,self.template_name,{'form':form})
 '''
 
-@login_required(login_url = "login" )
+@login_required(login_url = "login")
 def Case_Detail_View(request,pk):
 
     obj = Case.objects.get(id=pk)

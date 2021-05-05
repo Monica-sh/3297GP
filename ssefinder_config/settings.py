@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'Case.apps.CaseConfig',
     'Event.apps.EventConfig',
     'homepages.apps.HomepagesConfig', 
+    'User.apps.UserConfig', 
 ]
 
 MIDDLEWARE = [
