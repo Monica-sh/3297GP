@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect
 from .models import PersonalEvent, PublicEvent
 from Case.models import Case
 from .forms import PersonalEventForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+@login_required(login_url = "login" )
 def add_personal_event(request, pk):
     casepk = pk
     case = Case.objects.get(pk=casepk)
