@@ -15,11 +15,34 @@ import json
 import datetime
 
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-class HomeView(TemplateView):
-    template_name = 'home.html'
+def loginPage(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username= username, password = password)
+        if user is not None:
+            login(request,user)
+            return redirect('home_page')
+        else:
+            messages.info(request, 'Username or Password is incorrect')
+
+    context = {}
+    return render (request,'accounts/templates/login.html',context)
+
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
+
+@login_required(login_url = "login" )
+def home_view(request,*args,**kwargs):
+    context = {}
+    return render(request,'home.html',context)
 
 class ResultView(TemplateView):
     template_name = 'case_detail.html'
