@@ -5,6 +5,7 @@ from django.views.generic import TemplateView, ListView,CreateView,View
 from .forms import CaseForm
 from .models import Case
 from Event.models import *
+from django.contrib.auth.decorators import login_required
 
 
 class ResultView(ListView):
@@ -16,12 +17,28 @@ class ResultView(ListView):
         object_list = Case.objects.filter(Case_Number__icontains = query)
         return object_list
 
+
+@login_required(login_url = "login" )
+def case_create_view(request):
+    form = CaseForm(request.POST or None)
+    if form.is_valid():
+        new_case = form.save()
+        form = CaseForm()
+        context = {
+        'form':form
+        }
+        return redirect("../../case_detail?Case_Number=" + new_case.Case_Number)
+    else:
+        return render(request,'Case/templates/Case_form.html',{'form':form})
+
+'''
 class CaseCreateView(View):
     form_class = CaseForm
     template_name = 'Case/templates/Case_form.html'
 
     def get (self,request):
         return render(request,self.template_name,{'form':self.form_class()})
+    
     def post (self,request):
         form = self.form_class(request.POST)
         if form.is_valid():
@@ -30,7 +47,9 @@ class CaseCreateView(View):
             return redirect("../../case_detail?Case_Number=" + new_case.Case_Number)
         else:
             return render(request,self.template_name,{'form':form})
+'''
 
+@login_required(login_url = "login" )
 def Case_Detail_View(request,pk):
 
     obj = Case.objects.get(id=pk)
@@ -58,15 +77,3 @@ def Case_Detail_View(request,pk):
     }
 
     return render(request,'../templates/case_detail.html', Data) #TODO: Monica connect to result page
-
-'''
-def case_create_view(request):
-    form = CaseForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        form = CaseForm()
-    context = {
-        'form':form
-    }
-    return render(request,'Case/templates/case_view.html',context )
-    '''

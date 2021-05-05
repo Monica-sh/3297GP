@@ -7,7 +7,17 @@
 <!--    <script src="wapp.js"></script>-->
     <title>SSF Finder</title>
 </head>
+<style>
+    #hello-msg{
+        font-size: 18px;
+        color: #fff;
+        margin-right: 20px;
+    }
+</style>
+
 <body>
+    <span class = " hello-msg">Hello, {{request.user}} </span>
+    <p><span class = " hello-msg"><a href = "{% url 'logout' %}">Logout</a></span></p>
 
     <div id="AddCase">
         <p id="AddCaseHeader" class="header">Add Cases</p>
