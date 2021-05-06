@@ -15,12 +15,12 @@ class PublicEvent(models.Model):
     location = models.CharField(max_length=200)
 
     # venue address, get from api
-    address = models.CharField(max_length=200, null=True)
+    address = models.CharField(max_length=200, null=True, blank=True)
 
     # x and y coordinates of location
-    xCoord = models.FloatField(null=True)
+    xCoord = models.FloatField(null=True, blank=True)
 
-    yCoord = models.FloatField(null=True)
+    yCoord = models.FloatField(null=True, blank=True)
 
     # date of event
     date = models.DateField()

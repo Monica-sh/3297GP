@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 from .models import PersonalEvent, PublicEvent
 from .utils import DateUtils
 import datetime
+from .utils import APISender, APIBuilder
 
 class PersonalEventForm(forms.Form):
     def __init__(self, case=None, *args, **kwargs):
@@ -10,6 +11,9 @@ class PersonalEventForm(forms.Form):
         super(PersonalEventForm, self).__init__(*args, **kwargs)
     name = forms.CharField(error_messages={"required":"Cannot be empty! "})
     location = forms.CharField(error_messages={"required":"Cannot be empty! "})
+    address = forms.CharField(required=False, widget = forms.HiddenInput())
+    xCoord = forms.FloatField(required=False, widget = forms.HiddenInput())
+    yCoord = forms.FloatField(required=False, widget = forms.HiddenInput())
     date = forms.DateField(widget=forms.DateInput(attrs={'type':'date'}), error_messages={"required":"Cannot be empty! "})
     description = forms.CharField(required=False)
     
@@ -23,5 +27,36 @@ class PersonalEventForm(forms.Form):
             return val
     
     # def clean_location(self):
-    #     # check whether the location can be found
-    #     pass
+    #     '''check whether the location can be found'''
+    #     val = self.cleaned_data.get("location")
+    #     ok, response = APISender.send_request(APIBuilder(val))  # send api query
+    #     if not ok:
+    #         raise ValidationError("GeoData Retrieval failed, please submit again! ")
+    #     elif len(response) == 0:
+    #         raise ValidationError("GeoData not found, please check the location name! ")
+    #     else:
+    #         r = response[0]
+    #         print(r['addressEN'], r['x'], r['y'])
+    #         self.cleaned_data['address'] = r['addressEN']
+    #         self.cleaned_data['xCoord'] = r['x']
+    #         self.cleaned_data['yCoord'] = r['y']
+    #         print(self.cleaned_data['address'], self.cleaned_data['xCoord'], self.cleaned_data['yCoord'])
+    #         print("GeoData Retrieval passed! ")
+    #         return val
+    
+    def clean(self):
+        '''check whether the location can be found'''
+        super(forms.Form, self).clean()
+        location = self.cleaned_data.get("location")
+        ok, response = APISender.send_request(APIBuilder(location))  # send api query
+        if not ok:
+            raise ValidationError("GeoData Retrieval failed, please submit again! ")
+        elif len(response) == 0:
+            raise ValidationError("GeoData not found, please check the location name! ")
+        else:
+            r = response[0]
+            self.cleaned_data['address'] = r['addressEN']
+            self.cleaned_data['xCoord'] = r['x']
+            self.cleaned_data['yCoord'] = r['y']
+            print("GeoData Retrieval passed! ")
+            return self.cleaned_data
