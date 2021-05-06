@@ -31,10 +31,12 @@
         <p id="FindSSEHeader" class="header">Find SSE</p>
         <hr class="SplitLine">
         <div id="FindSSEInputArea" class="InputArea">
-            <input type="date" name="StartDate" placeholder="Start Date" id="FindSSEStartDate" class="FindSSEDate">
-            <p id="FindSSEText">to</p>
-            <input type="date" name="EndDate" placeholder="End Date" id="FindSSEEndDate" class="FindSSEDate">
-            <button class="search" id="FineSSEBtn">Search</button>
+            <form id="FindCaseInputArea" class="InputArea" action = "{% url 'sse-detail' %}" method = "get">
+                <input type="date" name="StartDate" placeholder="Start Date" id="FindSSEStartDate" class="FindSSEDate">
+                <p id="FindSSEText">to</p>
+                <input type="date" name="EndDate" placeholder="End Date" id="FindSSEEndDate" class="FindSSEDate">
+                <button class="search" id="FineSSEBtn">Search</button>
+            </form> 
         </div>
     </div>
 

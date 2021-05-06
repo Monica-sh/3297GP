@@ -1,0 +1,33 @@
+<head>
+    {% comment %} {% load static %} {% endcomment %}
+    {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'location/css/location_manage.css' %}"> {% endcomment %}
+</head>
+
+<div id="menu">
+    <button id="home">Home</button>
+</div>
+
+<h1>
+    SSE Result
+</h1>
+
+<div id="sselist">
+    {% for sse in object_list %}
+        <p onclick="location.href={% url 'sse-detail' sse.pk%}">
+            <span class="event_number">{{sse.name}}</span>
+        </p>
+    {% empty %}
+        <p>No result</p>
+    {% endfor %}
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(
+        function(){
+            $("#home").click(function(){
+                document.location.assign("{% url 'home_page' %}")
+            });
+        }
+    )
+</script>
