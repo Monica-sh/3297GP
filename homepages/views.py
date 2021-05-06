@@ -18,6 +18,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
@@ -44,7 +45,9 @@ def home_view(request,*args,**kwargs):
     context = {}
     return render(request,'home.html',context)
 
-class ResultView(TemplateView):
+class ResultView(LoginRequiredMixin, TemplateView):
+    login_url = 'login'
+    redirect_field_name = 'redirect_to'
     template_name = 'case_detail.html'
 
     def get_context_data(self, **kwargs): 

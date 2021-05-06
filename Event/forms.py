@@ -26,24 +26,6 @@ class PersonalEventForm(forms.Form):
             print("validation passed! ")
             return val
     
-    # def clean_location(self):
-    #     '''check whether the location can be found'''
-    #     val = self.cleaned_data.get("location")
-    #     ok, response = APISender.send_request(APIBuilder(val))  # send api query
-    #     if not ok:
-    #         raise ValidationError("GeoData Retrieval failed, please submit again! ")
-    #     elif len(response) == 0:
-    #         raise ValidationError("GeoData not found, please check the location name! ")
-    #     else:
-    #         r = response[0]
-    #         print(r['addressEN'], r['x'], r['y'])
-    #         self.cleaned_data['address'] = r['addressEN']
-    #         self.cleaned_data['xCoord'] = r['x']
-    #         self.cleaned_data['yCoord'] = r['y']
-    #         print(self.cleaned_data['address'], self.cleaned_data['xCoord'], self.cleaned_data['yCoord'])
-    #         print("GeoData Retrieval passed! ")
-    #         return val
-    
     def clean(self):
         '''check whether the location can be found'''
         super(forms.Form, self).clean()

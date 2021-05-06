@@ -2,6 +2,7 @@
 import json
 import requests
 from django.utils.http import quote
+import datetime
 
 class DateUtils:
     @staticmethod
@@ -35,3 +36,19 @@ class APISender:
             return True, r.json()
         else:
             return False, None
+
+
+class SSEUtils:
+    '''tools for SSE find'''
+    def __init__(self, public_event):
+        self.event = public_event
+    
+    def is_infector(case):
+        three_days_before_date_of_symptoms = case.Date_of_Symptoms + datetime.timedelta(days=-3)
+        date_of_confirmation = case.Date_of_Confirmation
+        return DateUtils.in_between(three_days_before_date_of_symptoms, date_of_confirmation)
+    
+    def is_infected(case):
+        fourteen_days_before_date_of_symptoms = case.Date_of_Symptoms + datetime.timedelta(days=-14)
+        two_dys_before_date_of_symptoms = case.Date_of_Symptoms + datetime.timedelta(days=-2)
+        return DateUtils.in_between(fourteen_days_before_date_of_symptoms, two_dys_before_date_of_symptoms)
