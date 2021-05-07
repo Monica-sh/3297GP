@@ -40,6 +40,9 @@
 #PersonalEventInfo{
     text-align: center;
     margin-top: 50px;
+
+    height: 380px;
+    overflow: auto;
 }
 
 .InputArea{

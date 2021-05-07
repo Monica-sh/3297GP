@@ -23,6 +23,11 @@
     margin: 20px
 }
 
+#info_part{
+    height: 600px;
+    overflow: auto;
+}
+
 .header{
     text-align: center;
 
