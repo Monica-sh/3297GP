@@ -29,12 +29,13 @@ def loginPage(request):
         user = authenticate(request, username= username, password = password)
         if user is not None:
             login(request,user)
+            request.session.set_expiry(7200)
             return redirect('home_page')
         else:
             messages.info(request, 'Username or Password is incorrect')
 
     context = {}
-    return render (request,'accounts/templates/login.html',context)
+    return render (request,'User/templates/login.html',context)
 
 def logoutUser(request):
     logout(request)
