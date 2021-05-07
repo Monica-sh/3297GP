@@ -9,6 +9,7 @@
 
 
 <body>
+    <div id="total">
     <div id="Header">
         <div><span id="HeaderText">Case Number: #</span>{{case.Case_Number}}</div>
     </div>
@@ -19,14 +20,25 @@
         <hr class="SplitLine">
         <div id="CaseInfoArea" class="InputArea">
             <!--show case info here-->
-            <div class="caseData"><span id="Case_Number" class="caseHeader"> Case Number : </span>{{case.Case_Number}}</div>
-            <div class="caseData"><span id="Person_name" class="caseHeader"> Person name : </span>{{case.Person_name}}</div>
-            <div class="caseData"><span id="Identity_Document_Number" class="caseHeader"> Identity Document Number : </span>{{case.Identity_Document_Number}}</div>
-            <div class="caseData"><span id="Date_of_Birth" class="caseHeader"> Date of Birth :</span>{{case.Date_of_Birth}}</div>
-            <div class="caseData"><span id="Date_of_Symptoms" class="caseHeader"> Date of onset of symptoms :</span>{{case.Date_of_Symptoms}}</div>
-            <div class="caseData"><span id="Date_of_Confirmation" class="caseHeader"> Date of confirmation of infection by testing :</span>{{case.Date_of_Confirmation}}</div>
-            <p></p>
-            <button id="editCaseBtn" class="edit">Edit</button>
+            <table id="CaseTable" border="1" style="border-collapse: collapse;">
+                <tr class="caseRowTitle">
+                    <th><span class="caseHeader"> Case Number </span></th>
+                    <th><span class="caseHeader"> Person_name </span></th>
+                    <th><span class="caseHeader"> Identity_Document_Number </span></th>
+                    <th><span class="caseHeader"> Date_of_Birth </span></th>
+                    <th><span class="caseHeader"> Date_of_Symptoms </span></th>
+                    <th><span class="caseHeader"> Date_of_Confirmation </span></th>
+                </tr>
+
+                <tr class="caseRow">
+                    <td><span id="Case_Number"> {{case.Case_Number}} </span></td>
+                    <td><span id="Person_name"> {{case.Person_name}} </span></td>
+                    <td><span id="Identity_Document_Number"> {{case.Identity_Document_Number}} </span></td>
+                    <td><span id="Date_of_Birth"> {{case.Date_of_Birth}} </span></td>
+                    <td><span id="Date_of_Symptoms"> {{case.Date_of_Symptoms}} </span></td>
+                    <td><span id="Date_of_Confirmation"> {{case.Date_of_Confirmation}} </span></td>
+                </tr>
+            </table>
         </div>
     </div>
 
@@ -35,7 +47,7 @@
         <p id="EventInfoHeader" class="header">Event Info</p>
         <hr class="SplitLine">
         <div id="EventInfoArea" class="InputArea">
-            <table id="EventTable" border="0" style="border-collapse: collapse;">
+            <table id="EventTable" border="1" style="border-collapse: collapse;">
                 <tr class="eventRowTitle"> <!--each event takes one row-->
                     <th><span id="name" class="eventData">Event Name</span></th>
                     <th><span id="location" class="eventData">Location</span></th>
@@ -44,7 +56,6 @@
                     <th><span id="yCoord" class="eventData">yCoord</span></th>
                     <th><span id="date" class="eventData">Date: </span></th>
                     <th><span id="description" class="eventData">Description</span></th>
-                    <th></th>
                 </tr>
                 <!--show Event info here-->
                 {% for elements in event_list %}
@@ -56,7 +67,6 @@
                     <td>{{elements.event.yCoord}}</td>
                     <td>{{elements.event.date}}</td>
                     <td>{{elements.description}}</td>
-                    <td><button class="edit">Edit</button></td>
                 </tr>
                 {% empty %}
                     <p>No result. </p>
@@ -78,12 +88,11 @@
 
 
     <div id="footer">
-        <h3>HKU Centre for Health Protection (CHP)</hcase.pk3>
-        <p>Email: <a href=chphku@hku.hk>HKU CHP Office</a></p>
-        <p>Telephone: (+852) 2819 2650</p>
+        <h3>HKU Centre for Health Protection (CHP)</h3>
+        <p>Email: <a href=chphku@hku.hk">HKU CHP Office</a>  &nbsp &nbsp &nbsp Telephone: (+852) 2819 2650</p>
     </div>
     <input type="hidden" id="url" data-url="{% url 'create-event' case.pk %}" />
-
+    </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
