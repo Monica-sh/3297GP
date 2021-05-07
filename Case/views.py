@@ -8,14 +8,14 @@ from Event.models import *
 from django.contrib.auth.decorators import login_required
 
 
-class ResultView(ListView):
-    model = Case
-    template_name = 'Case/templates/results.html'
+# class ResultView(ListView):
+#     model = Case
+#     template_name = 'Case/templates/results.html'
 
-    def get_queryset(self):
-        query = self.request.GET.get('q')
-        object_list = Case.objects.filter(Case_Number__icontains = query)
-        return object_list
+#     def get_queryset(self):
+#         query = self.request.GET.get('q')
+#         object_list = Case.objects.filter(Case_Number__icontains = query)
+#         return object_list
 
 
 @login_required(login_url = "login" )
@@ -54,22 +54,6 @@ def Case_Detail_View(request,pk):
 
     obj = Case.objects.get(id=pk)
     event_list = PersonalEvent.objects.filter(case = obj)
-
-    # Case_Number = obj.Case_Number
-    # Person_name = obj.Person_name
-    # Identity_Document_Number = obj.Identity_Document_Number
-    # Date_of_Birth = obj.Date_of_Birth
-    # Date_of_Symptoms = obj.Date_of_Symptoms
-    # Date_of_Confirmation = obj.Date_of_Confirmation 
-
-    # Data = {
-    #         'Case_Number': Case_Number,
-    #         'Person_name': Person_name,
-    #         'Identity_Document_Number': Identity_Document_Number,
-    #         'Date_of_Birth': Date_of_Birth,
-    #         'Date_of_Symptoms' : Date_of_Symptoms,
-    #         'Date_of_Confirmation' : Date_of_Confirmation,
-    # }
 
     Data = {
             'case': obj,
