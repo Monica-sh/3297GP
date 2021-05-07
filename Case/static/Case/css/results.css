@@ -32,6 +32,7 @@
 #result_info{
     text-align: center;
     margin-top: 45px;
+    overflow: scroll;
 }
 
 .result_number{
