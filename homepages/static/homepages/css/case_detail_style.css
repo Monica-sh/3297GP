@@ -79,7 +79,8 @@
 #EventInfo{
     margin-top: 25px;
     margin-bottom: 25px;
-
+}
+#scroll_part{
     height: 460px;
     overflow: auto;
 }
@@ -125,7 +126,8 @@
 #RecordNewEventBtn{
     font-size: 25px;
 
-    margin-top: 25px;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 #lastTwoBtn{
