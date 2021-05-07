@@ -8,8 +8,8 @@ from Event.models import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-
 class ResultView(LoginRequiredMixin,ListView):
+
     login_url = 'login'
     redirect_field_name = 'redirect_to'
     model = Case
@@ -57,22 +57,6 @@ def Case_Detail_View(request,pk):
 
     obj = Case.objects.get(id=pk)
     event_list = PersonalEvent.objects.filter(case = obj)
-
-    # Case_Number = obj.Case_Number
-    # Person_name = obj.Person_name
-    # Identity_Document_Number = obj.Identity_Document_Number
-    # Date_of_Birth = obj.Date_of_Birth
-    # Date_of_Symptoms = obj.Date_of_Symptoms
-    # Date_of_Confirmation = obj.Date_of_Confirmation 
-
-    # Data = {
-    #         'Case_Number': Case_Number,
-    #         'Person_name': Person_name,
-    #         'Identity_Document_Number': Identity_Document_Number,
-    #         'Date_of_Birth': Date_of_Birth,
-    #         'Date_of_Symptoms' : Date_of_Symptoms,
-    #         'Date_of_Confirmation' : Date_of_Confirmation,
-    # }
 
     Data = {
             'case': obj,

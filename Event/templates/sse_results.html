@@ -15,6 +15,7 @@
     {% for sse in object_list %}
         <p class="sse_detail_redirect" pk="{{sse.pk}}" onclick="location.href='{% url 'sse-detail' sse.pk%}'">
             <span class="event_number">{{sse.name}}</span>
+            <span class="event_date">{{sse.date}}</span>
         </p>
     {% empty %}
         <p>No result</p>
