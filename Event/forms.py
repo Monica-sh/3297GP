@@ -37,7 +37,10 @@ class PersonalEventForm(forms.Form):
             raise ValidationError("GeoData not found, please check the location name! ")
         else:
             r = response[0]
-            self.cleaned_data['address'] = r['addressEN']
+            if r['addressEN'] == "" or r['addressEN'] is None:
+                self.cleaned_data['address'] = "Address Not Found"
+            else:
+                self.cleaned_data['address'] = r['addressEN']
             self.cleaned_data['xCoord'] = r['x']
             self.cleaned_data['yCoord'] = r['y']
             print("GeoData Retrieval passed! ")

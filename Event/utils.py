@@ -60,9 +60,9 @@ class SSEPersonalEventData:
         self.event_description = personal_event.description
         type_list = []
         if SSEUtils.is_infector(personal_event.event, personal_event.case):
-            type_list.append("Infector")
+            type_list.append("Possible Infector")
         if SSEUtils.is_infected(personal_event.event, personal_event.case):
-            type_list.append("Infected")
+            type_list.append("Possibly Infected")
         self.type = ", ".join(type_list)
     
     
