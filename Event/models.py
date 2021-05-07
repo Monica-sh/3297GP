@@ -29,7 +29,7 @@ class PublicEvent(models.Model):
     number_of_cases = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.name
+        return self.name + "@" + str(self.date)
 
 
 class PersonalEvent(models.Model):
