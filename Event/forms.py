@@ -9,8 +9,8 @@ class PersonalEventForm(forms.Form):
     def __init__(self, case=None, *args, **kwargs):
         self.case = case
         super(PersonalEventForm, self).__init__(*args, **kwargs)
-    name = forms.CharField(label="Event Name", error_messages={"required":"Cannot be empty! "})
-    location = forms.CharField(label="Event Venue", error_messages={"required":"Cannot be empty! "})
+    name = forms.CharField(label="Venue Name", error_messages={"required":"Cannot be empty! "})
+    location = forms.CharField(label="Venue Location", error_messages={"required":"Cannot be empty! "})
     address = forms.CharField(required=False, widget = forms.HiddenInput())
     xCoord = forms.FloatField(required=False, widget = forms.HiddenInput())
     yCoord = forms.FloatField(required=False, widget = forms.HiddenInput())
