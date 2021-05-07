@@ -13,7 +13,7 @@
 
 <div id="sselist">
     {% for sse in object_list %}
-        <p onclick="location.href={% url 'sse-detail' sse.pk%}">
+        <p class="sse_detail_redirect" pk="{{sse.pk}}" onclick="location.href='{% url 'sse-detail' sse.pk%}'">
             <span class="event_number">{{sse.name}}</span>
         </p>
     {% empty %}

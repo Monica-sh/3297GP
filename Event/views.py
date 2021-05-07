@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect
+from django.views.generic import TemplateView
 from django.views.generic.list import ListView
 from .models import PersonalEvent, PublicEvent
 from Case.models import Case
 from .forms import PersonalEventForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 import requests
 import datetime
+from .utils import SSEPersonalEventData
 # Create your views here.
 
 @login_required(login_url = "login" )
@@ -51,13 +54,36 @@ def add_personal_event(request, pk):
             return render(request, "personal_event_create.html", {"form": form, "clear_errors": clear_errors})
 
 
-class SSEResultsListView(ListView):
+class SSEResultsListView(LoginRequiredMixin, ListView):
+    login_url = 'login'
+    redirect_field_name = 'redirect_to'
     model = PublicEvent
     template_name = 'sse_results.html'
 
     # override this method
     def get_queryset(self):
-        start_date = datetime.datetime.strptime(self.request.GET.get('StartDate'), '%Y-%m-%d')
-        end_date = datetime.datetime.strptime(self.request.GET.get('EndDate'), '%Y-%m-%d')
+        try:
+            start_date = datetime.datetime.strptime(self.request.GET.get('StartDate'), '%Y-%m-%d')
+        except:
+            start_date = datetime.datetime(1997, 1, 1)
+
+        try:
+            end_date = datetime.datetime.strptime(self.request.GET.get('EndDate'), '%Y-%m-%d')
+        except:
+            end_date = datetime.datetime.now()
         object_list = PublicEvent.objects.filter(date__range=(start_date, end_date), number_of_cases__gt=6)
         return object_list
+
+
+class SSEDetailListView(LoginRequiredMixin, TemplateView):
+    login_url = 'login'
+    redirect_field_name = 'redirect_to'
+    template_name = 'sse_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        public_event = PublicEvent.objects.get(pk=self.kwargs['pk'])
+        context['public_event'] = public_event
+        personal_event_list = PersonalEvent.objects.filter(event=public_event)
+        context['personal_event_data_list'] = SSEPersonalEventData.list_convert(personal_event_list)
+        return context

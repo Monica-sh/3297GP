@@ -40,15 +40,32 @@ class APISender:
 
 class SSEUtils:
     '''tools for SSE find'''
-    def __init__(self, public_event):
-        self.event = public_event
-    
-    def is_infector(case):
+    @staticmethod
+    def is_infector(public_event, case):
         three_days_before_date_of_symptoms = case.Date_of_Symptoms + datetime.timedelta(days=-3)
         date_of_confirmation = case.Date_of_Confirmation
-        return DateUtils.in_between(three_days_before_date_of_symptoms, date_of_confirmation)
+        return DateUtils.in_between(public_event.date, three_days_before_date_of_symptoms, date_of_confirmation)
     
-    def is_infected(case):
+    @staticmethod
+    def is_infected(public_event, case):
         fourteen_days_before_date_of_symptoms = case.Date_of_Symptoms + datetime.timedelta(days=-14)
         two_dys_before_date_of_symptoms = case.Date_of_Symptoms + datetime.timedelta(days=-2)
-        return DateUtils.in_between(fourteen_days_before_date_of_symptoms, two_dys_before_date_of_symptoms)
+        return DateUtils.in_between(public_event.date, fourteen_days_before_date_of_symptoms, two_dys_before_date_of_symptoms)
+
+
+class SSEPersonalEventData:
+    '''Pass information to view: personal event + type'''
+    def __init__(self, personal_event):
+        self.case_number = personal_event.case.Case_Number
+        self.event_description = personal_event.description
+        type_list = []
+        if SSEUtils.is_infector(personal_event.event, personal_event.case):
+            type_list.append("Infector")
+        if SSEUtils.is_infected(personal_event.event, personal_event.case):
+            type_list.append("Infected")
+        self.type = ", ".join(type_list)
+    
+    
+    @staticmethod
+    def list_convert(personal_data_list):
+        return list(map(SSEPersonalEventData, personal_data_list))

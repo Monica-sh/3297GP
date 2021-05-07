@@ -15,7 +15,7 @@ urlpatterns = [
     ), 
 
     path('sse_detail/<slug:pk>', 
-        views.add_personal_event, 
+        views.SSEDetailListView.as_view(), 
         name="sse-detail"
     ), 
 ]

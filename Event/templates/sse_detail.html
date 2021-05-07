@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Event/css/home_style.css' %}">
+    <title>SSE Detail</title>
+</head>
+
+<body>
+    <div id="eventTitle">
+        <p id="eventTitleHeader" class="header">{{public_event.name}}</p>
+        <hr class="SplitLine">
+    </div>
+    <div id="PublicEventInfo">
+        <div id="PublicEventInfoArea" class="InputArea">
+            <table id="PublicEventTable" class="EventTable" border="0" style="border-collapse: collapse;">
+                <tr class="eventRowTitle">
+                    <th><span id="name" class="eventData">Event Name</span></th>
+                    <th><span id="location" class="eventData">Location</span></th>
+                    <th><span id="address" class="eventData">Address</span></th>
+                    <th><span id="xCoord" class="eventData">xCoord</span></th>
+                    <th><span id="yCoord" class="eventData">yCoord</span></th>
+                    <th><span id="date" class="eventData">Date: </span></th>
+                </tr>
+                <!--show Event info here-->
+                <tr class="eventRow">
+                    <td>{{public_event.name}}</td>
+                    <td>{{public_event.location}}</td>
+                    <td>{{public_event.address}}</td>
+                    <td>{{public_event.xCoord}}</td>
+                    <td>{{public_event.yCoord}}</td>
+                    <td>{{public_event.date}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="PersonalEventInfo">
+        <div id="PersonalEventInfoArea" class="InputArea">
+            <table id="PersonalEventTable" class="EventTable" border="0" style="border-collapse: collapse;">
+                <tr class="eventRowTitle">
+                    <th><span id="caseNumber" class="eventData">Case Number</span></th>
+                    <th><span id="type" class="eventData">Type</span></th>
+                    <th><span id="eventDescription" class="eventData">Event Description</span></th>
+                </tr>
+                <!--show Event info here-->
+                {% for personal_event_data in personal_event_data_list %}
+                    <tr class="eventRow">
+                        <td><a class="case_detail_redirect" href={% url 'case_detail_page' %}?Case_Number={{personal_event_data.case_number}}>
+                            {{personal_event_data.case_number}}
+                        </a></td>
+                        <td>{{personal_event_data.type}}</td>
+                        <td>{{personal_event_data.event_description}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <p></p>
+    <div id="lastTwoBtn">
+        <button id="HomeBtn">Home</button>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(
+        function(){
+            $("#AddCaseBtn").click(function(){
+                document.location.assign("{% url 'case_create' %}")
+            });
+        }
+    )
+</script>
+</html>
