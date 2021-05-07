@@ -25,6 +25,9 @@
 
     text-align: center;
     margin-top: 50px;
+
+    height: 460px;
+    overflow: auto;
 }
 
 #sse_name{
