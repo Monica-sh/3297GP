@@ -73,6 +73,7 @@
     <p></p>
     <div id="lastTwoBtn">
         <button id="HomeBtn">Home</button>
+        <button id="BackBtn">Back</button>
     </div>
 
 
@@ -91,6 +92,11 @@
             $("#HomeBtn").click(function(){
                 document.location.assign("{% url 'home_page' %}")
             });
+
+            $("#BackBtn").click(function(){
+                window.history.back();
+            });
+
             $("#RecordNewEventBtn").click(function(){
                 url = $("#url").attr("data-url")
                 document.location.assign(url)

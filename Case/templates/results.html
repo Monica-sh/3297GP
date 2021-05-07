@@ -1,4 +1,7 @@
 <title>Results</title>
+<div id="MenuBtn">
+    <button id="HomeBtn">Home</button>
+</div>
 <h1>Results</h1>
 {%if object_list%}
 <h2>Matched Cases found!</h2>
@@ -18,3 +21,14 @@
 {%else%}
 <h2>Sorry, cannot find any matched case!</h2>
 {%endif%}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(
+        function(){
+            $("#HomeBtn").click(function(){
+                document.location.assign("{% url 'home_page' %}")
+            });
+        }
+    )
+</script>

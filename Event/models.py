@@ -28,6 +28,9 @@ class PublicEvent(models.Model):
     # number of cases in the event, should be modified whenever there is a change in personal events to this event
     number_of_cases = models.IntegerField(default=0)
 
+    def __str__(self):
+        return self.name
+
 
 class PersonalEvent(models.Model):
     '''
@@ -38,3 +41,6 @@ class PersonalEvent(models.Model):
     case = models.ForeignKey(Case, on_delete=models.CASCADE)
 
     description = models.CharField(max_length=200)
+
+    def __str__(self):
+        return str(self.case.Case_Number) + "@" + self.event.name

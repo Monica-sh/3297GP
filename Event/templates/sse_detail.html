@@ -8,6 +8,10 @@
 </head>
 
 <body>
+    <div id="MenuBtn">
+        <button id="HomeBtn">Home</button>
+        <button id="BackBtn">Back</button>
+    </div>
     <div id="eventTitle">
         <p id="eventTitleHeader" class="header">{{public_event.name}}</p>
         <hr class="SplitLine">
@@ -57,18 +61,17 @@
             </table>
         </div>
     </div>
-
-    <p></p>
-    <div id="lastTwoBtn">
-        <button id="HomeBtn">Home</button>
-    </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
     $(document).ready(
         function(){
-            $("#AddCaseBtn").click(function(){
-                document.location.assign("{% url 'case_create' %}")
+            $("#HomeBtn").click(function(){
+                document.location.assign("{% url 'home_page' %}")
+            });
+            
+            $("#BackBtn").click(function(){
+                window.history.back();
             });
         }
     )
