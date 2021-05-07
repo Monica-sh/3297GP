@@ -81,7 +81,7 @@
     margin-bottom: 25px;
 }
 #scroll_part{
-    height: 460px;
+    height: 320px;
     overflow: auto;
 }
 
@@ -135,20 +135,6 @@
     margin-top: 60px;
     margin-bottom: 30px;
 
-}
-
-#HomeBtn{
-    font-size: 28px;
-    letter-spacing: 1px;
-    margin-top: 25px;
-    margin-bottom: 30px;
-}
-#BackBtn{
-    font-size: 28px;
-    letter-spacing: 1px;
-    margin-top: 25px;
-    margin-bottom: 30px;
-    margin-left: 20px;
 }
 
 #footer{
