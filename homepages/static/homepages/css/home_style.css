@@ -1,3 +1,10 @@
+#total{
+
+    /*background-color: azure;*/
+    background-color: greenyellow;
+    /*border: black solid 3px;*/
+}
+
 .SplitLine{
     color: gray;
 
@@ -5,8 +12,9 @@
 }
 
 .search{
-    font-size: 20px;
-    margin: 20px;
+    font-size: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .header{
@@ -14,7 +22,7 @@
 
     /*background-color: #57b2fb;*/
 
-    font-size: 35px;
+    font-size: 30px;
     letter-spacing: 1px;
     word-spacing: 5px;
 
@@ -23,8 +31,8 @@
 
 
 #AddCaseBtn{
-    font-size: 25px;
-    margin: 20px;
+    font-size: 20px;
+    margin-top: 5px;
 }
 
 .InputArea{
@@ -34,32 +42,36 @@
 }
 
 .FindSSEDate{
-    margin: 20px;
+    margin-top: 3px;
+    margin-right: 20px;
+    margin-left: 20px;
 
-    font-size: 20px;
+    font-size: 15px;
 }
 
 #FindCaseInput{
     width: 400px;
-    margin: 20px;
+    margin-top: 3px;
+    margin-right: 20px;
+    margin-left: 20px;
 
-    font-size: 20px;
+
+    font-size: 15px;
 }
 
 #AddCase{
-    /*margin-top: 100px;*/
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 
 #FindSSE{
-    margin-top: 60px;
-    margin-bottom: 60px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 
-    font-size: 20px;
+    font-size: 15px;
 }
 
 #FindCase{
-    margin-top: 60px;
+    margin-top: 30px;
     margin-bottom: 60px;
 }
 
