@@ -9,10 +9,15 @@
 
 <body>
 <div id="total">
-    <div id="hellomsg">
-        <span class = " hello-msg">Hello, {{request.user}} </span>
-        <p><span class = " hello-msg"><a href = "{% url 'home_page' %}">Home</a></span></p>
-        <p><span class = " hello-msg"><a href = "{% url 'logout' %}">Logout</a></span></p>
+    <div id="menu">
+        <div id="left">
+            <button id="home">Home</button>
+            <button id="back">Back</button>
+        </div>
+        <div class="hello">
+            <span class = "hello-msg">Hello, {{request.user}} </span>
+            <p><span class = "hello-msg"><a href = "{% url 'logout' %}">Logout</a></span></p>
+        </div>
     </div>
 
     <div id="Header">
@@ -33,8 +38,23 @@
 
     <div id="footer">
         <h3>HKU Centre for Health Protection (CHP)</h3>
-        <p>Email: <a href=chphku@hku.hk">HKU CHP Office</a>  &nbsp &nbsp &nbsp Telephone: (+852) 2819 2650</p>
+        <p>Email: <a href=chphku@hku.hk>HKU CHP Office</a>  &nbsp &nbsp &nbsp Telephone: (+852) 2819 2650</p>
     </div>
 
 </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(
+        function(){
+            $("#home").click(function(){
+                document.location.assign("{% url 'home_page' %}")
+            });
+
+            $("#back").click(function(){
+                window.history.back();
+            });
+        }
+    )
+</script>
+</html>

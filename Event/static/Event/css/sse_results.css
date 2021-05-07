@@ -21,11 +21,6 @@
     width: 1000px;
 }
 
-#hellomsg{
-    text-align: right;
-    font-weight: bold;
-}
-
 #sse_list{
 
     text-align: center;
@@ -52,4 +47,26 @@
     bottom: 0px;
     left: 0px;
     padding: 1rem;
+}
+
+#home,#back{
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    margin-right: 20px;
+}
+
+
+#menu{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.hello-msg{
+    display: flex;
+    flex-flow: column wrap;
+    text-align: right;
+    font-weight: bold;
 }

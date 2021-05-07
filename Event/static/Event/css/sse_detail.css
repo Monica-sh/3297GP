@@ -21,12 +21,6 @@
     width: 1000px;
 }
 
-#hellomsg{
-    text-align: right;
-    font-weight: bold;
-}
-
-
 #lastTwoBtn{
     text-align: center;
     margin-top: 60px;
@@ -63,28 +57,6 @@
     font-size: 20px;
 }
 
-
-
-
-
-
-#HomeBtn{
-    font-size: 28px;
-    letter-spacing: 1px;
-    margin-top: 25px;
-    margin-bottom: 30px;
-    margin-right: 20px;
-}
-
-#BackBtn{
-    font-size: 28px;
-    letter-spacing: 1px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    margin-left: 20px;
-}
-
-
 #footer{
     background-color: lightsalmon;
     position: absolute;
@@ -92,4 +64,26 @@
     bottom: 0px;
     left: 0px;
     padding: 1rem;
+}
+
+#home,#back{
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    margin-right: 20px;
+}
+
+
+#menu{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.hello-msg{
+    display: flex;
+    flex-flow: column wrap;
+    text-align: right;
+    font-weight: bold;
 }
