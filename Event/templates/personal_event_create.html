@@ -1,8 +1,40 @@
-<h1>Add Personal Event</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Event/css/personal_event_create.css' %}">
+    <title>Results</title>
+</head>
 
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit">
-    <button onclick="window.history.back()">Cancel</button>
-</form>
+<body>
+<div id="total">
+    <div id="hellomsg">
+        <span class = " hello-msg">Hello, {{request.user}} </span>
+        <p><span class = " hello-msg"><a href = "{% url 'home_page' %}">Home</a></span></p>
+        <p><span class = " hello-msg"><a href = "{% url 'logout' %}">Logout</a></span></p>
+    </div>
+
+    <div id="Header">
+        <div><span>Add Personal Event</span></div>
+    </div>
+
+    <hr class="SplitLine">
+
+    <div id="add_form">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <input type="submit" value="Submit"  class="two_button">
+            <button onclick="window.history.back()" class="two_button">Cancel</button>
+        </form>
+    </div>
+
+    <div id="footer">
+        <h3>HKU Centre for Health Protection (CHP)</h3>
+        <p>Email: <a href=chphku@hku.hk">HKU CHP Office</a>  &nbsp &nbsp &nbsp Telephone: (+852) 2819 2650</p>
+    </div>
+
+</div>
+</body>

@@ -1,26 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    {% comment %} {% load static %} {% endcomment %}
-    {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'location/css/location_manage.css' %}"> {% endcomment %}
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Event/css/sse_results.css' %}">
+    <title>SSE Results</title>
 </head>
 
-<div id="menu">
-    <button id="home">Home</button>
-</div>
+<body>
+<div id="total">
+    <!--    #####: I changed this button to a link, check whether it works-->
+    <!--<div id="menu">-->
+    <!--    <button id="home">Home</button>-->
+    <!--</div>-->
 
-<h1>
-    SSE Result
-</h1>
+    <div id="hellomsg">
+        <span class = " hello-msg">Hello, {{request.user}} </span>
+        <p><span class = " hello-msg"><a href = "{% url 'home_page' %}">Home</a></span></p>
+        <p><span class = " hello-msg"><a href = "{% url 'logout' %}">Logout</a></span></p>
+    </div>
 
-<div id="sselist">
-    {% for sse in object_list %}
+    <div id="Header">
+        <div><span>SSE Result</span></div>
+    </div>
+    <hr class="SplitLine">
+
+    <div id="sse_list">
+        {% for sse in object_list %}
         <p class="sse_detail_redirect" pk="{{sse.pk}}" onclick="location.href='{% url 'sse-detail' sse.pk%}'">
-            <span class="event_number">{{sse.name}}</span>
-            <span class="event_date">{{sse.date}}</span>
+            <span class="event_number" id="sse_name">{{sse.name}}</span>&nbsp &nbsp
+            <span class="event_date" id="sse_date">{{sse.date}}</span>
         </p>
-    {% empty %}
-        <p>No result</p>
-    {% endfor %}
+        {% empty %}
+        <p id="no_result">No result</p>
+        {% endfor %}
+    </div>
+
+    <div id="footer">
+        <h3>HKU Centre for Health Protection (CHP)</h3>
+        <p>Email: <a href=chphku@hku.hk">HKU CHP Office</a>  &nbsp &nbsp &nbsp Telephone: (+852) 2819 2650</p>
+    </div>
 </div>
+</body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
