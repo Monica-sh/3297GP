@@ -1,0 +1,95 @@
+#total{
+    background-color: azure;
+    background-size: 100% 100%;
+    height: 800px;
+}
+
+#Header{
+    /*background-size: cover;*/
+    font-size: 40px;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+    font-weight: bold;
+
+    text-align: center;
+
+    margin-bottom: 0px;
+}
+
+.SplitLine{
+    color: gray;
+    width: 1000px;
+}
+
+#hellomsg{
+    text-align: right;
+    font-weight: bold;
+}
+
+
+#lastTwoBtn{
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+#PublicEventInfo{
+    text-align: center;
+}
+
+#PersonalEventInfo{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.InputArea{
+    text-align: center;
+    width: 100%;
+}
+
+.EventTable{
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+
+}
+
+.eventRow{
+    font-size: 18px;
+    text-align: center;
+}
+.eventRowTitle{
+    font-size: 20px;
+}
+
+
+
+
+
+
+#HomeBtn{
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    margin-right: 20px;
+}
+
+#BackBtn{
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+}
+
+
+#footer{
+    background-color: lightsalmon;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    padding: 1rem;
+}
