@@ -9,12 +9,12 @@ class PersonalEventForm(forms.Form):
     def __init__(self, case=None, *args, **kwargs):
         self.case = case
         super(PersonalEventForm, self).__init__(*args, **kwargs)
-    name = forms.CharField(error_messages={"required":"Cannot be empty! "})
-    location = forms.CharField(error_messages={"required":"Cannot be empty! "})
+    name = forms.CharField(label="Event Name", error_messages={"required":"Cannot be empty! "})
+    location = forms.CharField(label="Event Venue", error_messages={"required":"Cannot be empty! "})
     address = forms.CharField(required=False, widget = forms.HiddenInput())
     xCoord = forms.FloatField(required=False, widget = forms.HiddenInput())
     yCoord = forms.FloatField(required=False, widget = forms.HiddenInput())
-    date = forms.DateField(widget=forms.DateInput(attrs={'type':'date'}), error_messages={"required":"Cannot be empty! "})
+    date = forms.DateField(label="Event Date", widget=forms.DateInput(attrs={'type':'date'}), error_messages={"required":"Cannot be empty! "})
     description = forms.CharField(required=False)
     
     def clean_date(self):
