@@ -6,16 +6,19 @@ from .forms import CaseForm
 from .models import Case
 from Event.models import *
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class ResultView(ListView):
+class ResultView(LoginRequiredMixin,ListView):
+    login_url = 'login'
+    redirect_field_name = 'redirect_to'
     model = Case
     template_name = 'Case/templates/results.html'
 
     def get_queryset(self):
         query = self.request.GET.get('q')
         object_list = Case.objects.filter(Case_Number__icontains = query)
-        return object_list
+        return object_list 
 
 
 @login_required(login_url = "login" )
