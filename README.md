@@ -18,3 +18,4 @@ URL: https://ssefinder2.herokuapp.com/
 
 2. No case of asymptomatic infection.
 
+3. Presentation of some pages is not adaptive.
