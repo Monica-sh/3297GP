@@ -18,5 +18,3 @@ class CaseForm(forms.ModelForm):
         'Date_of_Confirmation':forms.DateInput(attrs={'type':'date'}), 
         }
     
-    '''def clean_Case_Number(self):
-        return self.cleaned_data['Case_Number'].upper()'''

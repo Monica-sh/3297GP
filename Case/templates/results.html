@@ -18,25 +18,14 @@
         </div>
     </div>
 
-
-    <!--    #####: I changed this button to a link, check whether it works-->
-    <!--    <div id="MenuBtn">-->
-    <!--        <button id="HomeBtn">Home</button>-->
-    <!--    </div>-->
-
     <div id="Header">
         <div><span>Results</span></div>
     </div>
     <hr class="SplitLine">
     {%if object_list%}
 
-
-    <!--    #####if founded, no msg will be shown. only when nothing founded will the warning be shown-->
-    <!--    <div id="found" class="result_status_msg">-->
-    <!--        <h2>Matched Cases found!</h2>-->
-    <!--    </div>-->
     <div id="result_info">
-        <!--        <ul>-->
+
         {%for case in object_list%}
         <div>
             <li class="result_number">
@@ -45,8 +34,7 @@
             </li>
         </div>
         {% empty %}
-        <!--            #####This line will never be reached, right?-->
-        <!--            <p class="result_number">No result</p>-->
+
         {% endfor %}
         </ul>
     </div>
