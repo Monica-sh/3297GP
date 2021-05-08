@@ -28,6 +28,9 @@ class PublicEvent(models.Model):
     # number of cases in the event, should be modified whenever there is a change in personal events to this event
     number_of_cases = models.IntegerField(default=0)
 
+    class Meta:
+        ordering = ('date','name')
+
     def __str__(self):
         return self.name + "@" + str(self.date)
 
@@ -42,5 +45,8 @@ class PersonalEvent(models.Model):
 
     description = models.CharField(max_length=200)
 
+    class Meta:
+        ordering = ('case','event')
+
     def __str__(self):
-        return str(self.case.Case_Number) + "@" + self.event.name
+        return str(self.case.Case_Number) + "@" + str(self.event.date) + "@" + self.event.name
