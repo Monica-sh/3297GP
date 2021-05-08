@@ -1,1 +1,3 @@
-This is the repo of group project 3297
+#COMP 3297 Group Project
+
+URL: https://ssefinder2.herokuapp.com/
